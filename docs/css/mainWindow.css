@@ -59,7 +59,7 @@ body {
 #close {
     position: absolute;
     border: none;
-    left: calc(100vw - 30px);
+    left: calc(100vw - 50px);
     top: 5px;
 
 }
