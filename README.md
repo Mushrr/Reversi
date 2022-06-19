@@ -20,5 +20,5 @@
 
 ###### 如果有问题可以联系我
 
-mushroom@mails.ccnu.edu.cn
+mushroom@mails.ccnu.edu.cn  
 huangxingjiegkd@163.com
