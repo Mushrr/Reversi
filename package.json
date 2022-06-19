@@ -1,0 +1,9 @@
+{
+  "name": "Reversi",
+  "version": "1.0.0",
+  "description": "黑白棋",
+  "main": "index.js",
+  "repository": "https://github.com/Mushrr/Reversi",
+  "author": "HuangXingjie2002 <mushroom@mails.ccnu.edu.cn>",
+  "license": "MIT"
+}
