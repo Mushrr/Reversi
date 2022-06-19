@@ -156,7 +156,7 @@ class Rule {
                     && currentPlayer != this.gameBoard[row][col]) {
                     return true;
                 }
-            } 
+            }
             if (col === 0 || col === 7) {
                 if (this.gameBoard[row - 1][col] === this.gameBoard[row + 1][col]
                     && this.gameBoard[row + 1][col] === currentPlayer
@@ -252,7 +252,7 @@ class GameControl {
                             this.infoBoard.white = { increment: 1 };
                         }
 
-                        // 
+                        //
                         // 更新board
                         this.infoBoard.currentNewItems = 1;
 
@@ -271,7 +271,7 @@ class GameControl {
                             this.infoBoard.black = { increment: -1 };
                         }
 
-                        // 
+                        //
                         // 更新board
                         this.rule.gameBoard[currentPoint.row][currentPoint.col] = this.infoBoard.currentPlayer;
                         this.render();

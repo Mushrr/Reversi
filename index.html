@@ -1,107 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <link>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reversi</title>
-    <link rel="stylesheet" href="./css/mainWindow.css"></link>
-    <script src="./js/entry.js" async></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reversi</title>
+<link rel="stylesheet" href="./css/mainWindow.css"></link>
+<script src="./js/entry.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js"></script>
 </head>
 <body>
-    <div id="reversi">
-        <div id="infoBoard">
-            <div id="infoBoard_title">
-                <h1>Reversi</h1>
-            </div>
-            <div id="blackScore">黑方得分 <span>2</span></div>
-            <div id="whiteScore">白方得分 <span>2</span></div>
-            <div id="currentPlayer">当前选手 <span>黑方</span></div>
-            <button onclick="change()">轮换</button>
-            <div id="info"></div>
+<div id="rule">
+    
+    <h4>黑白棋规则</h4>
+    <button id="close" onclick="closeRule()">
+        <svg t="1655648291128" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3444" width="25" height="25"><path d="M512 960C264.96 960 64 759.04 64 512S264.96 64 512 64s448 200.96 448 448S759.04 960 512 960zM512 128.288C300.416 128.288 128.288 300.416 128.288 512c0 211.552 172.128 383.712 383.712 383.712 211.552 0 383.712-172.16 383.712-383.712C895.712 300.416 723.552 128.288 512 128.288z" p-id="3445"></path><path d="M557.056 513.376l138.368-136.864c12.576-12.416 12.672-32.672 0.256-45.248-12.416-12.576-32.704-12.672-45.248-0.256l-138.56 137.024-136.448-136.864c-12.512-12.512-32.736-12.576-45.248-0.064-12.512 12.48-12.544 32.736-0.064 45.248l136.256 136.672-137.376 135.904c-12.576 12.448-12.672 32.672-0.256 45.248 6.272 6.336 14.496 9.504 22.752 9.504 8.128 0 16.256-3.104 22.496-9.248l137.568-136.064 138.688 139.136c6.24 6.272 14.432 9.408 22.656 9.408 8.192 0 16.352-3.136 22.592-9.344 12.512-12.48 12.544-32.704 0.064-45.248L557.056 513.376z" p-id="3446"></path></svg>
+    </button>
+
+    <ul>
+        <li>1. 黑子先手</li>
+        <li>2. 没人每轮只能下一次空白位置</li>
+        <li>3. 当发现对方棋子被己方夹击（X0X）（横竖斜都可）<br> 时，
+            可以置换对方的棋子为己方棋子
+        </li>
+        <li>4. 最终无棋子可下时，场上棋子多的一方获胜</li>
+    </ul>
+    <h4>快捷键</h4>
+    <ul>
+        <li>1. &lt;c&gt;: 切换选手</li>
+        <li>2. &lt;r&gt;: 重新开始对局</li>
+    </ul>
+</div>
+<div id="reversi">
+
+    <div id="infoBoard">
+        <div id="infoBoard_title">
+            <h1>Reversi</h1>
         </div>
-        <div id="gameBoard">
-            <div id="i1"></div>
-            <div id="i2"></div>
-            <div id="i3"></div>
-            <div id="i4"></div>
-            <div id="i5"></div>
-            <div id="i6"></div>
-            <div id="i7"></div>
-            <div id="i8"></div>
-            <div id="i9"></div>
-            <div id="i10"></div>
-            <div id="i11"></div>
-            <div id="i12"></div>
-            <div id="i13"></div>
-            <div id="i14"></div>
-            <div id="i15"></div>
-            <div id="i16"></div>
-            <div id="i17"></div>
-            <div id="i18"></div>
-            <div id="i19"></div>
-            <div id="i20"></div>
-            <div id="i21"></div>
-            <div id="i22"></div>
-            <div id="i23"></div>
-            <div id="i24"></div>
-            <div id="i25"></div>
-            <div id="i26"></div>
-            <div id="i27"></div>
-            <div id="i28"></div>
-            <div id="i29"></div>
-            <div id="i30"></div>
-            <div id="i31"></div>
-            <div id="i32"></div>
-            <div id="i33"></div>
-            <div id="i34"></div>
-            <div id="i35"></div>
-            <div id="i36"></div>
-            <div id="i37"></div>
-            <div id="i38"></div>
-            <div id="i39"></div>
-            <div id="i40"></div>
-            <div id="i41"></div>
-            <div id="i42"></div>
-            <div id="i43"></div>
-            <div id="i44"></div>
-            <div id="i45"></div>
-            <div id="i46"></div>
-            <div id="i47"></div>
-            <div id="i48"></div>
-            <div id="i49"></div>
-            <div id="i50"></div>
-            <div id="i51"></div>
-            <div id="i52"></div>
-            <div id="i53"></div>
-            <div id="i54"></div>
-            <div id="i55"></div>
-            <div id="i56"></div>
-            <div id="i57"></div>
-            <div id="i58"></div>
-            <div id="i59"></div>
-            <div id="i60"></div>
-            <div id="i61"></div>
-            <div id="i62"></div>
-            <div id="i63"></div>
-            <div id="i64"></div>
-        </div>
-        <div id="rule">
-            <h4>黑白棋规则</h4>
-            <ul>
-                
-                <li>1. 黑子先手</li>
-                <li>2. 没人每轮只能下一次空白位置</li>
-                <li>3. 当发现对方棋子被己方夹击（X0X）（横竖斜都可）<br> 时，
-                    可以置换对方的棋子为己方棋子</li>
-                <li>4. 最终无棋子可下时，场上棋子多的一方获胜</li>
-            </ul>
-            <h4>快捷键</h4>
-            <ul>
-                <li>1. &lt;c&gt;: 切换选手 </li>
-                <li>2. &lt;r&gt;: 重新开始对局</li>
-            </ul>
-        </div>
+        <div id="blackScore">黑方得分 <span>2</span></div>
+        <div id="whiteScore">白方得分 <span>2</span></div>
+        <div id="currentPlayer">当前选手 <span>黑方</span></div>
+        <button onclick="change()">轮换</button>
+        <button onclick="showRule()">规则</button>
+        <div id="info"></div>
     </div>
+    <div id="gameBoard">
+        <div id="i1"></div>
+        <div id="i2"></div>
+        <div id="i3"></div>
+        <div id="i4"></div>
+        <div id="i5"></div>
+        <div id="i6"></div>
+        <div id="i7"></div>
+        <div id="i8"></div>
+        <div id="i9"></div>
+        <div id="i10"></div>
+        <div id="i11"></div>
+        <div id="i12"></div>
+        <div id="i13"></div>
+        <div id="i14"></div>
+        <div id="i15"></div>
+        <div id="i16"></div>
+        <div id="i17"></div>
+        <div id="i18"></div>
+        <div id="i19"></div>
+        <div id="i20"></div>
+        <div id="i21"></div>
+        <div id="i22"></div>
+        <div id="i23"></div>
+        <div id="i24"></div>
+        <div id="i25"></div>
+        <div id="i26"></div>
+        <div id="i27"></div>
+        <div id="i28"></div>
+        <div id="i29"></div>
+        <div id="i30"></div>
+        <div id="i31"></div>
+        <div id="i32"></div>
+        <div id="i33"></div>
+        <div id="i34"></div>
+        <div id="i35"></div>
+        <div id="i36"></div>
+        <div id="i37"></div>
+        <div id="i38"></div>
+        <div id="i39"></div>
+        <div id="i40"></div>
+        <div id="i41"></div>
+        <div id="i42"></div>
+        <div id="i43"></div>
+        <div id="i44"></div>
+        <div id="i45"></div>
+        <div id="i46"></div>
+        <div id="i47"></div>
+        <div id="i48"></div>
+        <div id="i49"></div>
+        <div id="i50"></div>
+        <div id="i51"></div>
+        <div id="i52"></div>
+        <div id="i53"></div>
+        <div id="i54"></div>
+        <div id="i55"></div>
+        <div id="i56"></div>
+        <div id="i57"></div>
+        <div id="i58"></div>
+        <div id="i59"></div>
+        <div id="i60"></div>
+        <div id="i61"></div>
+        <div id="i62"></div>
+        <div id="i63"></div>
+        <div id="i64"></div>
+    </div>
+</div>
+<script src="./js/animation.js"></script>
 </body>
 </html>
