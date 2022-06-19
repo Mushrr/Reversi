@@ -16,3 +16,9 @@
 
 ![主界面](https://github.com/Mushrr/Reversi/blob/main/img/mainwindow.png)
 ![游戏进行终](https://github.com/Mushrr/Reversi/blob/main/img/gaming.png)
+
+
+###### 如果有问题可以联系我
+
+mushroom@mails.ccnu.edu.cn
+huangxingjiegkd@163.com
