@@ -5,19 +5,19 @@ function closeRule() {
     let tween = gsap.timeline();
     tween.to('#rule', {
         y: '-100vh',
-        duration: 1,
+        duration: 0.5,
         display: 'none',
     }).to('#reversi', {
         display: 'grid',
         gridAutoFlow: 'column',
-        duration: 1,
+        duration: 0.3,
     }).from('#infoBoard', {
         x: '-50vw',
-        duration: 1,
+        duration: 0.7,
         ease: 'power2'
     }).from('#gameBoard', {
         x: '150vw',
-        duration: 1,
+        duration: 0.7,
         ease: 'power2'
     });
 }
