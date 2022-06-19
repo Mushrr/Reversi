@@ -14,5 +14,5 @@
 
 [在线demo](https://mushrr.github.io/Reversi/index)
 
-![主界面](https://github.com/Mushrr/Reversi/blob/main/img/mainWindow.png)
+![主界面](https://github.com/Mushrr/Reversi/blob/main/img/mainwindow.png)
 ![游戏进行终](https://github.com/Mushrr/Reversi/blob/main/img/gaming.png)
