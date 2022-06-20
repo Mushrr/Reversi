@@ -5,21 +5,40 @@ function closeRule() {
     let tween = gsap.timeline();
     tween.to('#rule', {
         y: '-100vh',
-        duration: 0.5,
         display: 'none',
-    }).to('#reversi', {
-        display: 'grid',
-        gridAutoFlow: 'column',
-        duration: 0.3,
-    }).from('#infoBoard', {
-        x: '-50vw',
-        duration: 0.7,
-        ease: 'power2'
-    }).from('#gameBoard', {
-        x: '150vw',
-        duration: 0.7,
-        ease: 'power2'
-    });
+        duration: 0.5,
+    })
+
+    if (window.innerWidth < 600) {
+        tween.to('#reversi', {
+            display: 'grid',
+            gridAutoFlow: 'row',
+            alignItems: 'center',
+            duration: 0.3,
+        }).from('#infoBoard', {
+            x: '-50vw',
+            duration: 0.7,
+            ease: 'power2'
+        }).from('#gameBoard', {
+            x: '150vw',
+            duration: 0.7,
+            ease: 'power2'
+        });
+    } else {
+        tween.to('#reversi', {
+            display: 'grid',
+            gridAutoFlow: 'column',
+            duration: 0.3,
+        }).from('#infoBoard', {
+            x: '-50vw',
+            duration: 0.7,
+            ease: 'power2'
+        }).from('#gameBoard', {
+            x: '150vw',
+            duration: 0.7,
+            ease: 'power2'
+        });
+    }
 }
 
 function showRule() {
